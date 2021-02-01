@@ -57,7 +57,7 @@
 
 ### Basic Cheatsheet Table of Contents
 
-<details>
+
 
 <summary><b>Expand Table of Contents</b></summary>
 
@@ -125,10 +125,10 @@
 - [Example App](#example-app)
 - [My question isn't answered here!](#my-question-isnt-answered-here)
   - [Contributors](#contributors)
-  <!--START-SECTION:setup-toc-->
+
   - [Prerequisites](#prerequisites)
   - [React + TypeScript Starter Kits](#react--typescript-starter-kits)
-  - [Import React](#import-react)<!--END-SECTION:setup-toc-->
+  - [Import React](#import-react)
 - [Section 2: Getting Started](#section-2-getting-started)
   - [Function Components](#function-components)
   - [Hooks](#hooks)
@@ -145,7 +145,7 @@
   - [Error Boundaries](#error-boundaries)
   - [Concurrent React/React Suspense](#concurrent-reactreact-suspense)
 - [Basic Troubleshooting Handbook: Types](#basic-troubleshooting-handbook-types)
-  <!--START-SECTION:types-toc-->
+
   - [Union Types and Type Guarding](#union-types-and-type-guarding)
   - [Optional Types](#optional-types)
   - [Enum Types](#enum-types)
@@ -161,7 +161,7 @@
     - [Slapping `any` on everything](#slapping-any-on-everything)
     - [Autogenerate types](#autogenerate-types)
     - [Typing Exported Hooks](#typing-exported-hooks)
-    - [Typing Exported Components](#typing-exported-components)<!--END-SECTION:types-toc-->
+    - [Typing Exported Components](#typing-exported-components)
 - [Troubleshooting Handbook: Operators](#troubleshooting-handbook-operators)
 - [Troubleshooting Handbook: Utilties](#troubleshooting-handbook-utilities)
 - [Troubleshooting Handbook: tsconfig.json](#troubleshooting-handbook-tsconfigjson)
@@ -174,9 +174,9 @@
 - [Time to Really Learn TypeScript](#time-to-really-learn-typescript)
 - [Example App](#example-app)
 - [My question isn't answered here!](#my-question-isnt-answered-here)
-  </details>
+  
 
-<!--START-SECTION:setup-->
+
 
 # Section 1: Setup TypeScript with React
 
@@ -205,7 +205,7 @@ Local dev setups:
 - [Ignite](https://github.com/infinitered/ignite#use-ignite-andross-infinite-red-andross-boilerplate) for React Native: `ignite new myapp`
 - [TSDX](https://tsdx.io/): `npx tsdx create mylib` for Creating React+TS _libraries_. (in future: [TurboRepo](https://twitter.com/jaredpalmer/status/1346217789942591488))
 
-<details>
+
 <summary>
 Other tools
 </summary>
@@ -224,7 +224,7 @@ Manual setup:
 - In particular, make sure that you have `@types/react` and `@types/react-dom` installed ([Read more about the DefinitelyTyped project if you are unfamiliar](https://definitelytyped.org/))
 - There are also many React + TypeScript boilerplates, please see [our Other Resources list](https://react-typescript-cheatsheet.netlify.app/docs/basic/recommended/resources/).
 
-</details>
+
 
 ## Import React
 
@@ -240,7 +240,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 ```
 
-<details>
+
 
 <summary>Explanation</summary>
 
@@ -248,13 +248,11 @@ Why `allowSyntheticDefaultImports` over `esModuleInterop`? [Daniel Rosenwasser](
 
 You should also check [the new TypeScript docs for official descriptions between each compiler flag](https://www.typescriptlang.org/tsconfig#allowSyntheticDefaultImports)!
 
-</details>
 
-<!--END-SECTION:setup-->
+
 
 # Section 2: Getting Started
 
-<!--START-SECTION:function-components-->
 
 ## Function Components
 
@@ -265,7 +263,7 @@ type AppProps = { message: string }; /* could also use interface */
 const App = ({ message }: AppProps) => <div>{message}</div>;
 ```
 
-<details>
+
 
 <summary><b>Why is `React.FC` discouraged? What about `React.FunctionComponent`/`React.VoidFunctionComponent`?</b></summary>
 
@@ -296,7 +294,7 @@ const Title: React.FunctionComponent<{ title: string }> = ({
 }) => <div title={title}>{children}</div>;
 ```
 
-<details>
+
 <summary>
 
 Using `React.VoidFunctionComponent` or `React.VFC` instead
@@ -334,15 +332,15 @@ const VoidFunctionComponent: React.VoidFunctionComponent<Props> = ({
 };
 ```
 
-</details>
+
 
 - _In the future_, it may automatically mark props as `readonly`, though that's a moot point if the props object is destructured in the parameter list.
 
 In most cases it makes very little difference which syntax is used, but you may prefer the more explicit nature of `React.FunctionComponent`.
 
-</details>
 
-<details>
+
+
 <summary><b>Minor Pitfalls</b></summary>
 
 These patterns are not supported:
@@ -372,11 +370,9 @@ const MyArrayComponent = () => (Array(5).fill(<div />) as any) as JSX.Element;
 
 [See commentary by @ferdaber here](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet/issues/57).
 
-</details>
 
-<!--END-SECTION:function-components-->
 
-<!--START-SECTION:hooks-->
+
 
 ## Hooks
 
@@ -443,7 +439,7 @@ function Counter() {
 
 [View in the TypeScript Playground](https://www.typescriptlang.org/play?#code/LAKFEsFsAcHsCcAuACAVMghgZ2QJQKYYDGKAZvLJMgOTyEnUDcooRsAdliuO+IuBgA2AZUQZE+ZAF5kAbzYBXdogBcyAAwBfZmBCIAntEkBBAMIAVAJIB5AHLmAmgAUAotOShkyAD5zkBozVqHiI6SHxlagAaZGgMfUFYDAATNXYFSAAjfHhNDxAvX1l-Q3wg5PxQ-HDImLiEpNTkLngeAHM8ll1SJRJwDmQ6ZIUiHIAKLnEykqNYUmQePgERMQkY4n4ONTMrO0dXAEo5T2aAdz4iAAtkMY3+9gA6APwj2ROvImxJYPYqmsRqCp3l5BvhEAp4Ow5IplGpJhIHjCUABqTB9DgPeqJFLaYGfLDfCp-CIAoEFEFeOjgyHQ2BKVTNVb4RF05TIAC0yFsGWy8Fu6MeWMaB1x5K8FVIGAUglUwK8iEuFFOyHY+GVLngFD5Bx0Xk0oH13V6myhplZEm1x3JbE4KAA2vD8DFkuAsHFEFcALruAgbB4KAkEYajPlDEY5GKLfhCURTHUnKkQqFjYEAHgAfHLkGb6WpZI6WfTDRSvKnMgpEIgBhxTIJwEQANZSWRjI5SdPIF1u8RXMayZ7lSphEnRWLxbFNagAVmomhF6fZqYA9OXKxxM2KQWWK1WoTW643m63pB2u+7e-3SkEQsPamOGik1FO55p08jl6vdxuKcvv8h4yAmhAA)
 
-<details>
+
 
 <summary><b>Usage with `Reducer` from `redux`</b></summary>
 
@@ -457,7 +453,7 @@ import { Reducer } from 'redux';
 export function reducer: Reducer<AppState, Action>() {}
 ```
 
-</details>
+
 
 ## useEffect
 
@@ -480,7 +476,7 @@ function DelayedEffect(props: { timerMs: number }) {
 }
 ```
 
-<details>
+
 <summary>
 Solution to the above example
 </summary>
@@ -499,7 +495,7 @@ function DelayedEffect(props: { timerMs: number }) {
 }
 ```
 
-</details>
+
 
 ## useRef
 
@@ -512,7 +508,7 @@ const ref2 = useRef<HTMLElement | null>(null);
 
 The first option will make `ref1.current` read-only, and is intended to be passed in to built-in `ref` attributes that React will manage (because React handles setting the `current` value for you).
 
-<details>
+
   <summary>What is the <code>!</code> at the end of <code>null!</code>?</summary>
 
 `null!` is a non-null assertion operator (the `!`). It asserts that any expression before it is not `null` or `undefined`, so if you have `useRef<HTMLElement>(null!)` it means that you're instantiating the ref with a current value of `null` but lying to TypeScript that it's not `null`.
@@ -528,7 +524,7 @@ function MyComponent() {
 }
 ```
 
-</details>
+
 
 The second option will make `ref2.current` mutable, and is intended for "instance variables" that you manage yourself.
 
@@ -595,7 +591,7 @@ export function useLoading() {
 
 This way, when you destructure you actually get the right types based on destructure position.
 
-<details>
+
 <summary><b>Alternative: Asserting a tuple return type</b></summary>
 
 If you are [having trouble with const assertions](https://github.com/babel/babel/issues/9800), you can also assert or define the function return types:
@@ -634,7 +630,7 @@ function useTuple() {
 }
 ```
 
-</details>
+
 
 Note that the React team recommends that custom hooks that return more than two values should use proper objects instead of tuples, however.
 
@@ -653,9 +649,7 @@ If you are writing a React Hooks library, don't forget that you should also expo
 
 [Something to add? File an issue](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet/issues/new).
 
-<!--END-SECTION:hooks-->
 
-<!--START-SECTION:class-components-->
 
 ## Class Components
 
@@ -688,7 +682,7 @@ class App extends React.Component<MyProps, MyState> {
 
 Don't forget that you can export/import/extend these types/interfaces for reuse.
 
-<details>
+
 <summary><b>Why annotate <code>state</code> twice?</b></summary>
 
 It isn't strictly necessary to annotate the `state` class property, but it allows better type inference when accessing `this.state` and also initializing the state.
@@ -697,9 +691,9 @@ This is because they work in two different ways, the 2nd generic type parameter 
 
 [See commentary by @ferdaber here](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet/issues/57).
 
-</details>
 
-<details>
+
+
   <summary><b>No need for <code>readonly</code></b></summary>
 
 You often see sample code include `readonly` to mark props and state immutable:
@@ -715,7 +709,7 @@ type MyState = {
 
 This is not necessary as `React.Component<P,S>` already marks them as immutable. ([See PR and discussion!](https://github.com/DefinitelyTyped/DefinitelyTyped/pull/26813))
 
-</details>
+
 
 **Class Methods**: Do it like normal, but just remember any arguments for your functions also need to be typed:
 
@@ -828,9 +822,7 @@ class Comp extends React.PureComponent<Props, State> {
 
 [View in the TypeScript Playground](https://www.typescriptlang.org/play/?jsx=2#code/JYWwDg9gTgLgBAJQKYEMDG8BmUIjgcilQ3wFgAoUSWOYAZwFEBHAVxQBs5tcD2IATFHQAWAOnpJWHMuQowAnmCRwAwizoxcANQ4tlAXjgoAdvIDcFYMZhIomdMoAKOMHTgBvCnDhgXAQQAuVXVNEB12PQtyAF9La1t7NGUAESRMKyR+AGUYFBsPLzgIGGFbHLykADFgJHZ+II0oKwBzKNjyBSU4cvzDVPTjTJ7lADJEJBgWKGMAFUUkAB5OpAhMOBgoEzpMaBBnCFcZiGGAPijMFmMMYAhjdc3jbd39w+PcmwAKXwO6IJe6ACUBXI3iIk2mwO83joKAAbpkXoEfC46KJvmA-AAaOAAehxcBh8K40DgICQIAgwAAXnkbsZCt5+LZgPDsu8kEF0aj0X5CtE2hQ0OwhG4VLgwHAkAAPGzGfhuZDoGCiRxTJBi8C3JDWBb-bGnSFwNC3RosDDQL4ov4ooGeEFQugsJRQS0-AFRKHrYT0UQaCpwQx2z3eYqlKDDaq1epwABEAEYAEwAZhjmIZUNEmY2Wx2UD2KKOw1drgB6f5fMKfpgwDQcGaE1STVZEZw+Z+xd+cD1BPZQWGtvTwDWH3ozDY7A7aP82KrSF9cIR-gBQLBUzuxhY7HYHqhq4h2ceubbryLXPdFZiQA)
 
-<!--END-SECTION:class-components-->
 
-<!--START-SECTION:default-props-->
 
 ## You May Not Need `defaultProps`
 
@@ -903,7 +895,7 @@ class Greet extends React.Component<GreetProps> {
 let el = <Greet age={3} />;
 ```
 
-<details>
+
   <summary>
   
    `JSX.LibraryManagedAttributes` nuance for library authors
@@ -933,7 +925,7 @@ export type ApparentGreetProps = JSX.LibraryManagedAttributes<
 
 ``This will work properly, although hovering over`ApparentGreetProps`may be a little intimidating. You can reduce this boilerplate with the`ComponentProps` utility detailed below.
 
-</details>
+
 
 ## Consuming Props of a Component with defaultProps
 
@@ -986,7 +978,7 @@ const el = <TestComponent name="foo" />;
 
 ## Misc Discussions and Knowledge
 
-<details>
+
   <summary>Why does React.FC break defaultProps?</summary>
 
 You can check the discussions here:
@@ -997,9 +989,9 @@ You can check the discussions here:
 
 This is just the current state and may be fixed in future.
 
-</details>
 
-<details>
+
+
  <summary>TypeScript 2.9 and earlier</summary>
 
 For TypeScript 2.9 and earlier, there's more than one way to do it, but this is the best advice we've yet seen:
@@ -1035,13 +1027,11 @@ The problem with this approach is it causes complex issues with the type inferen
 
 [See commentary by @ferdaber here](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet/issues/57) and [here](https://github.com/typescript-cheatsheets/react/issues/61).
 
-</details>
+
 
 [Something to add? File an issue](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet/issues/new).
 
-<!--END-SECTION:default-props-->
 
-<!--START-SECTION:basic-type-examples-->
 
 ## Typing Component Props
 
@@ -1113,7 +1103,7 @@ export declare interface AppProps {
 }
 ```
 
-<details>
+
 <summary>
 Small `React.ReactNode` edge case
 </summary>
@@ -1137,9 +1127,9 @@ This is because `ReactNode` includes `ReactFragment` which allows a `{}` type, w
 
 [Thanks @pomle for raising this.](https://github.com/typescript-cheatsheets/react/issues/357)
 
-</details>
 
-<details>
+
+
  <summary><b>JSX.Element vs React.ReactNode?</b></summary>
 
 Quote [@ferdaber](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet/issues/57): A more technical explanation is that a valid React node is not the same thing as what is returned by `React.createElement`. Regardless of what a component ends up rendering, `React.createElement` always returns an object, which is the `JSX.Element` interface, but `React.ReactNode` is the set of all possible return values of a component.
@@ -1147,7 +1137,7 @@ Quote [@ferdaber](https://github.com/typescript-cheatsheets/react-typescript-che
 - `JSX.Element` -> Return value of `React.createElement`
 - `React.ReactNode` -> Return value of a component
 
-</details>
+
 
 [More discussion: Where ReactNode does not overlap with JSX.Element](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet/issues/129)
 
@@ -1195,9 +1185,7 @@ It's a nuanced topic, don't get too hung up on it. Here's a handy table:
 
 [Something to add? File an issue](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet/issues/new).
 
-<!--END-SECTION:basic-type-examples-->
 
-<!--START-SECTION:get-derived-state-from-props-->
 
 ## getDerivedStateFromProps
 
@@ -1263,9 +1251,7 @@ class Comp extends React.PureComponent<Props, State> {
 
 [View in the TypeScript Playground](https://www.typescriptlang.org/play/?jsx=2#code/JYWwDg9gTgLgBAJQKYEMDG8BmUIjgcilQ3wFgAoUSWOYAZwFEBHAVxQBs5tcD2IATFHQAWAOnpJWHMuQowAnmCRwAwizoxcANQ4tlAXjgoAdvIDcFYMZhIomdMoAKOMHTgBvCnDhgXAQQAuVXVNEB12PQtyAF9La1t7NGUAESRMKyR+AGUYFBsPLzgIGGFbHLykADFgJHZ+II0oKwBzKNjyBSU4cvzDVPTjTJ7lADJEJBgWKGMAFUUkAB5OpAhMOBgoEzpMaBBnCFcZiGGAPijMFmMMYAhjdc3jbd39w+PcmwAKXwO6IJe6ACUBXI3iIk2mwO83joKAAbpkXoEfC46KJvmA-AAaOAAehxcBh8K40DgICQIAgwAAXnkbsZCt5+LZgPDsu8kEF0aj0X5CtE2hQ0OwhG4VLgwHAkAAPGzGfhuZDoGCiRxTJBi8C3JDWBb-bGnSFwNC3RosDDQL4ov4ooGeEFQugsJRQS0-AFRKHrYT0UQaCpwQx2z3eYqlKDDaq1epwABEAEYAEwAZhjmIZUNEmY2Wx2UD2KKOw1drgB6f5fMKfpgwDQcGaE1STVZEZw+Z+xd+cD1BPZQWGtvTwDWH3ozDY7A7aP82KrSF9cIR-gBQLBUzuxhY7HYHqhq4h2ceubbryLXPdFZiQA)
 
-<!--END-SECTION:get-derived-state-from-props-->
 
-<!--START-SECTION:forms-and-events-->
 
 ## Forms and Events
 
@@ -1317,13 +1303,13 @@ Instead of typing the arguments and return values with `React.FormEvent<>` and `
   }
 ```
 
-<details>
+
 
 <summary><b>Why two ways to do the same thing?</b></summary>
 
 The first method uses an inferred method signature `(e: React.FormEvent<HTMLInputElement>): void` and the second method enforces a type of the delegate provided by `@types/react`. So `React.ChangeEventHandler<>` is simply a "blessed" typing by `@types/react`, whereas you can think of the inferred method as more... _artisanally hand-rolled_. Either way it's a good pattern to know. [See our Github PR for more](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet/pull/24).
 
-</details>
+
 
 **Typing onSubmit, with Uncontrolled components in a Form**
 
@@ -1365,9 +1351,7 @@ If you don't quite care about the type of the event, you can just use React.Synt
 
 Of course, if you're making any sort of significant form, [you should use Formik](https://jaredpalmer.com/formik) or [React Hook Form](https://react-hook-form.com/), which are written in TypeScript.
 
-<!--END-SECTION:forms-and-events-->
 
-<!--START-SECTION:context-->
 
 ## Context
 
@@ -1597,7 +1581,7 @@ There are a few solutions for this:
 
 5. A [useReducer-based version](https://gist.github.com/sw-yx/f18fe6dd4c43fddb3a4971e80114a052) may also be helpful.
 
-<details>
+
 
 <summary><b>Mutable Context Using a Class component wrapper</b></summary>
 
@@ -1644,13 +1628,11 @@ class Provider extends React.Component<{}, ProviderState> {
 const Consumer = Context.Consumer;
 ```
 
-</details>
+
 
 [Something to add? File an issue](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet/issues/new).
 
-<!--END-SECTION:context-->
 
-<!--START-SECTION:forward-create-ref-->
 
 ## forwardRef/createRef
 
@@ -1679,7 +1661,7 @@ export const FancyButton = React.forwardRef<Ref, Props>((props, ref) => (
 ));
 ```
 
-<details>
+
   <summary>
     
     Side note: the `ref` you get from `forwardRef` is mutable so you can assign to it if needed.
@@ -1701,7 +1683,7 @@ export const FancyButton = React.forwardRef((
 ));
 ```
 
-</details>
+
 
 If you are grabbing the props of a component that forwards refs, use [`ComponentPropsWithRef`](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/a05cc538a42243c632f054e42eab483ebf1560ab/types/react/index.d.ts#L770).
 
@@ -1711,9 +1693,7 @@ You may also wish to do [Conditional Rendering with `forwardRef`](https://github
 
 [Something to add? File an issue](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet/issues/new).
 
-<!--END-SECTION:forward-create-ref-->
 
-<!--START-SECTION:portals-->
 
 ## Portals
 
@@ -1742,7 +1722,7 @@ export class Modal extends React.Component {
 
 [View in the TypeScript Playground](https://www.typescriptlang.org/play/?jsx=2#code/JYWwDg9gTgLgBAJQKYEMDG8BmUIjgcilQ3wFgAoUSWRYmAEQHkBZObXAo9GAWgBNcZchTQQAdgGd4ICHxQAbBBAjwAvHAFoAriCRiYAOgDmSGAFF5SXfoBCATwCSfABQAiGXPk8cK1wEo4FAk4AAkAFWYAGQsrPRgAbgoAeiTAiQkdYDEjOCy4OwgtKDgACxgQeTZgS1KgwI1gADc4AHdgGBLcvgIPBW9lGHxE4XIkAA9qeDR5IODmWQU4cZg9PmDkbgMAYVxIMTi4AG8KOCX5AC5QiOjLazUNCG07gzQuFZi7tz4m-2GTuFE4HEcXowD48y0+mcAWO5FOp16igGBhQYDAqy2JWqLg6wAkBiQ8j8w1OAF8KP9AXs4gB1aryACqYhkkJg0KO-wRCyRKgMRBkjSQmOxzlx+MJxP+5JGpyIYj4SCg7Nh8LgRBgRTEtG4TGYLzeSAACtAYApRVj8WAcGB8WgsfI+HKADRwMUEokkuDS0lAA)
 
-<details>
+
   <summary><b>Using hooks</b></summary>
 
 Same as above but using hooks
@@ -1773,7 +1753,7 @@ export default Modal;
 
 [View in the TypeScript Playground](https://www.typescriptlang.org/play?#code/JYWwDg9gTgLgBAJQKYEMDG8BmUIjgcilQ3wFgAoUSWOAbzjSJRiQAVoYUAbOAXzmy4CTDAFoAJrjLkKAellwUAZyUBXEMAB2Aczha4ATwiqocABYwQPTMC5JzyxXHHAAbnADuwGGb3iCIBDi3KI4EDD4ANwUFGgQmkrwALJB3ABciMQwAHQAYgDCADy0vAB8cAC8cAAU9GhmtuJEmnwAlJXltBRwcPJwAKIgqlzM9j72aCMqDLiQmkiaEUp6CZyaaPauKFDAKABGdp7evihwRJjdM6twSDxVyOg5qkpIyJjVkmjqCzmMqCz9OwgH7VABELlcoNarWiMnIPQeGGyzyQ-UwmCQGGq1XaFU6lx6fQA6vZlGpgXAAAaBYJcBAQcKUm4AD2AiWWXh8BAAhNIej04tcadx6eFKs4IF9gYtsgBHVRIKAGADKt0xMGgYIAxMKuKEGTAoYplgAJAAqSQAMoCkNKYLD+XBdaKYNzsigwGAFuJ8g0uOJqrdsl8oM0YDCCWckDATC0cR04K4IMB-M6DW6iIFXEhfY1A1xgyYwxH4XwADRwADaAF0S5c+gBJVaofwQTBU26UivjK6cLSKvTLHuU86F0M-SmXIgxqAtP6jdiwbjVeqNZoVoMh4uw3iwuQKZ4obRIGLkTCqdYwYDxOAAQU98a6pcFiSrSjMEA8KVpFZeMGVH5fqkXDVuKiJPC8yqcCw1SYNwLwlj006xjUkaFBCpSRoSChGKoDAoC08EQHAYCqPAPhsishjGKYiTMMAaDmJY1i2CepaOuhbh+BUoK6vq4SgqUhSyBhWF0O+n7ftwcAAGQyah7GOnAhRSVwmGKUpykQmJmmJAYdgVLQT6aSZzhsmAIwGBkoLaDs4igmWOkmRZ6BIA2LAgEo1kbIsioOU5mlmEgwDaBY1kAIwAAyRa4Zj+RpplHOIPgZPgUUxWY+COQlpl7OgADWtnGJo4jWVA2h5dUkVltVtXZOFrTxYlSkAF5NuISDMhkACc3XZc1PS8LwAVwOpA1wA2+B4KcurcrQoJwKCw05UphR7GRGotHpBlGXlaCFTgF6lYtYAegYKAeA0YBLfw8T5FwDH5YZ8Z4nAf4AZJwGwfBSCtGUkwQC8wnrTAm1jYlwmiStwmqeDjp-WJa0bTed0Pftz24uU72Aap1QwFACp-aUEkeHAqnA8jmhw-yfREK+bbUSYiiemhIluODrQULwQA)
 
-</details>
+
 
 Modal Component Usage Example:
 
@@ -1813,17 +1793,15 @@ function App() {
 }
 ```
 
-<details>
+
 
 <summary><b>Context of Example</b></summary>
 
 This example is based on the [Event Bubbling Through Portal](https://reactjs.org/docs/portals.html#event-bubbling-through-portals) example of React docs.
 
-</details>
 
-<!--END-SECTION:portals-->
 
-<!--START-SECTION:error-boundaries-->
+
 
 ## Error Boundaries
 
@@ -1876,9 +1854,7 @@ export default ErrorBoundary;
 
 [Something to add? File an issue](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet/issues/new).
 
-<!--END-SECTION:error-boundaries-->
 
-<!--START-SECTION:concurrent-->
 
 ## Concurrent React/React Suspense
 
@@ -1886,9 +1862,7 @@ _Not written yet._ watch <https://github.com/sw-yx/fresh-async-react> for more o
 
 [Something to add? File an issue](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet/issues/new).
 
-<!--END-SECTION:concurrent-->
 
-<!--START-SECTION:types-->
 
 # Troubleshooting Handbook: Types
 
@@ -2177,14 +2151,14 @@ const partialStateUpdate = (obj: Partial<typeof state>) =>
 partialStateUpdate({ foo: 2 }); // this works
 ```
 
-<details>
+
   <summary>
     Minor caveats on using <code>Partial</code>
   </summary>
 
 Note that there are some TS users who don't agree with using `Partial` as it behaves today. See [subtle pitfalls of the above example here](https://twitter.com/ferdaber/status/1084798596027957248), and check out this long discussion on [why @types/react uses Pick instead of Partial](https://github.com/DefinitelyTyped/DefinitelyTyped/issues/18365).
 
-</details>
+
 
 ## The Types I need weren't exported!
 
@@ -2334,7 +2308,7 @@ declare module 'use-untyped-hook' {
 }
 ```
 
-<details>
+
 <summary>
 
 For instance, the [useDarkMode hook](https://github.com/donavon/use-dark-mode) exports the functions that follows a similar structure.
@@ -2403,7 +2377,7 @@ declare module "use-dark-mode" {
 }
 ```
 
-</details>
+
 
 ### Typing Exported Components
 
@@ -2427,9 +2401,7 @@ declare module "react-router-dom" {
 
 For more information on creating type definitions for class components, you can refer to this [post](https://templecoding.com/blog/2016/03/31/creating-typescript-typings-for-existing-react-components) for reference.
 
-<!--END-SECTION:types-->
 
-<!--START-SECTION:operators-->
 
 # Troubleshooting Handbook: Operators
 
@@ -2451,9 +2423,7 @@ Conditional Types are a difficult topic to get around so here are some extra res
 - Basarat's video https://www.youtube.com/watch?v=SbVgPQDealg&list=PLYvdvJlnTOjF6aJsWWAt7kZRJvzw-en8B&index=2&t=0s
 - [Generics, Conditional types and Mapped types](https://www.youtube.com/watch?v=PJjeHzvi_VQ&feature=youtu.be)
 
-<!--END-SECTION:operators-->
 
-<!--START-SECTION:utilities-->
 
 # Troubleshooting Handbook: Utilities
 
@@ -2473,9 +2443,7 @@ These are all built in, [see source in es5.d.ts](https://github.com/microsoft/Ty
 - `Required`: Make all properties in an object required
 - `ReturnType`: A function's return type
 
-<!--END-SECTION:utilities-->
 
-<!--START-SECTION:ts-config-->
 
 # Troubleshooting Handbook: tsconfig.json
 
@@ -2525,9 +2493,7 @@ Selected flags and why we like them:
 
 Compilation speed grows linearly with size of codebase. For large projects, you will want to use [Project References](https://www.typescriptlang.org/docs/handbook/project-references.html). See our [ADVANCED](https://react-typescript-cheatsheet.netlify.app/docs/advanced/intro/) cheatsheet for commentary.
 
-<!--END-SECTION:ts-config-->
 
-<!--START-SECTION:official-typings-bugs-->
 
 # Troubleshooting Handbook: Fixing bugs in official typings
 
@@ -2592,9 +2558,7 @@ process = {
 
 You can see examples of these included in the built in type declarations in the `lib` field of `tsconfig.json`
 
-<!--END-SECTION:official-typings-bugs-->
 
-<!--START-SECTION:non-ts-files-->
 
 # Time to Really Learn TypeScript
 
@@ -2613,9 +2577,7 @@ It is worth mentioning some resources to help you get started:
 - Shu Uesugi: [TypeScript for Beginner Programmers](https://ts.chibicode.com/)
 - Here is another [TypeScript Error Guide](https://github.com/threehams/typescript-error-guide/) that you can check for your errors.
 
-<!--END-SECTION:non-ts-files-->
 
-<!--START-SECTION:resources-->
 
 # Other React + TypeScript resources
 
@@ -2636,9 +2598,7 @@ It is worth mentioning some resources to help you get started:
   - [Microsoft React TypeScript conversion guide](https://github.com/Microsoft/TypeScript-React-Conversion-Guide#typescript-react-conversion-guide)
 - [You?](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet/issues/new).
 
-<!--END-SECTION:resources-->
 
-<!--START-SECTION:editor-integration-->
 
 # Editor Tooling and Integration
 
@@ -2661,9 +2621,7 @@ You may also wish to use alternative logos - [jsx-tsx-logos](https://github.com/
 
 ![https://github.com/Protectator/jsx-tsx-logos/raw/master/example.png](https://github.com/Protectator/jsx-tsx-logos/raw/master/example.png)
 
-<!--END-SECTION:editor-integration-->
 
-<!--START-SECTION:linting-->
 
 # Linting
 
@@ -2770,9 +2728,7 @@ Wes Bos is also working on [TypeScript support for his eslint+prettier config.](
 
 If you're looking for information on Prettier, check out the [Prettier](https://github.com/typescript-cheatsheets/react/blob/main/docs/advanced/misc-concerns.md#prettier) guide.
 
-<!--END-SECTION:linting-->
 
-<!--START-SECTION:other-resources-->
 
 # Other React + TypeScript resources
 
@@ -2792,18 +2748,14 @@ If you're looking for information on Prettier, check out the [Prettier](https://
 - [DefinitelyTyped React source code](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react)
 - [You?](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet/issues/new).
 
-<!--END-SECTION:other-resources-->
 
-<!--START-SECTION:talks-->
 
 # Recommended React + TypeScript talks
 
 - [Ultimate React Component Patterns with TypeScript](https://www.youtube.com/watch?v=_PBQ3if6Fmg), by Martin Hochel, GeeCon Prague 2018
 - Please help contribute this new section!
 
-<!--END-SECTION:talks-->
 
-<!--START-SECTION:learn-ts-->
 
 # Time to Really Learn TypeScript
 
@@ -2822,9 +2774,7 @@ It is worth mentioning some resources to help you get started:
 - Shu Uesugi: [TypeScript for Beginner Programmers](https://ts.chibicode.com/)
 - Here is another [TypeScript Error Guide](https://github.com/threehams/typescript-error-guide/) that you can check for your errors.
 
-<!--END-SECTION:learn-ts-->
 
-<!--START-SECTION:examples-->
 
 # Example App
 
@@ -2832,7 +2782,7 @@ It is worth mentioning some resources to help you get started:
 - [Ben Awad's 14 hour Fullstack React/GraphQL/TypeScript Tutorial](https://www.youtube.com/watch?v=I6ypD7qv3Z8)
 - [Cypress Realworld App](https://github.com/cypress-io/cypress-realworld-app)
 
-<!--END-SECTION:examples-->
+
 
 # My question isn't answered here!
 
